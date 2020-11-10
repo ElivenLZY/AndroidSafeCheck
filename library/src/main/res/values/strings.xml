@@ -1,0 +1,12 @@
+<resources>
+    <string name="safe_check_warning">警告</string>
+    <string name="safe_check_sure">确定</string>
+    <string name="safe_check_exit">退出应用</string>
+    <string name="safe_check_sign_warning_msg">请前往官方渠道下载正版应用</string>
+    <string name="safe_check_root_warning_msg">为了您的信息安全，请不要在root的设备上使用该应用</string>
+    <string name="safe_check_root_warning_sure">我已了解该风险</string>
+    <string name="safe_check_simu_warning_msg">您正在模拟器上使用该应用，请注意隐私安全</string>
+    <string name="safe_check_net_proxy_warning_msg">为了您的信息安全，请不要使用代理网络访问数据</string>
+    <string name="safe_check_fail_msg">%s检查不通过</string>
+
+</resources>
