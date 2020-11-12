@@ -16,8 +16,8 @@ public class RootCheckTask extends AbstractCheckTask {
 
     public static final String TAG = RootCheckTask.class.getSimpleName();
 
-    public RootCheckTask(FragmentActivity mActivity) {
-        super(mActivity);
+    public RootCheckTask(FragmentActivity activity) {
+        super(activity);
     }
 
     @Override

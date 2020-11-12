@@ -21,8 +21,8 @@ public abstract class AbstractCheckTask implements ICheckTask {
     protected FragmentActivity    mActivity;
     protected OnTaskEventListener mOnTaskEventListener;
 
-    public AbstractCheckTask(FragmentActivity mActivity) {
-        this.mActivity = mActivity;
+    public AbstractCheckTask(FragmentActivity activity) {
+        this.mActivity = activity;
     }
 
     @Override

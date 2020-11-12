@@ -17,8 +17,8 @@ public class PageHackCheckTask extends AbstractCheckTask {
 
     public static final String TAG = RootCheckTask.class.getSimpleName();
 
-    public PageHackCheckTask(FragmentActivity mActivity) {
-        super(mActivity);
+    public PageHackCheckTask(FragmentActivity activity) {
+        super(activity);
     }
 
     @Override

@@ -16,8 +16,8 @@ public class SimulatorCheckTask extends AbstractCheckTask {
 
     public static final String TAG = SimulatorCheckTask.class.getSimpleName();
 
-    public SimulatorCheckTask(FragmentActivity mActivity) {
-        super(mActivity);
+    public SimulatorCheckTask(FragmentActivity activity) {
+        super(activity);
     }
 
     @Override

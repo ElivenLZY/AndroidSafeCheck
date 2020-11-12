@@ -19,8 +19,12 @@ public class SignCheckTask extends AbstractCheckTask {
 
     private String mRightCer;
 
-    public SignCheckTask(FragmentActivity mActivity, String rightCer) {
-        super(mActivity);
+    /**
+     *
+     * @param rightCer 正版签名
+     */
+    public SignCheckTask(FragmentActivity activity, String rightCer) {
+        super(activity);
         this.mRightCer = rightCer;
     }
 

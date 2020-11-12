@@ -12,8 +12,8 @@ public class DebugCheckTask extends AbstractCheckTask {
 
     public static final String TAG = DebugCheckTask.class.getSimpleName();
 
-    public DebugCheckTask(FragmentActivity mActivity) {
-        super(mActivity);
+    public DebugCheckTask(FragmentActivity activity) {
+        super(activity);
     }
 
     @Override

@@ -18,8 +18,8 @@ public class NetProxyCheckTask extends AbstractCheckTask {
 
     protected boolean mIsOpenNetProxyCheck;
 
-    public NetProxyCheckTask(FragmentActivity mActivity, boolean isOpenNetProxyCheck) {
-        super(mActivity);
+    public NetProxyCheckTask(FragmentActivity activity, boolean isOpenNetProxyCheck) {
+        super(activity);
         this.mIsOpenNetProxyCheck = isOpenNetProxyCheck;
     }
 
