@@ -2,11 +2,11 @@ package com.lzy.safecheck.task;
 
 import android.content.DialogInterface;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.FragmentActivity;
-
 import com.lzy.safecheck.R;
 import com.lzy.safecheck.utils.Utils;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
 
 /**
  * 模拟器检查task
@@ -35,11 +35,12 @@ public class SimulatorCheckTask extends AbstractCheckTask {
                 .setCancelable(false)
                 .setTitle(getString(R.string.safe_check_warning))
                 .setMessage(getString(R.string.safe_check_simu_warning_msg))
-                .setNegativeButton(getString(R.string.safe_check_root_warning_sure), new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.safe_check_root_warning_sure),
+                        new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        callTaskEventListener(true);
+                        callTaskEventListener(true, false);
                     }
                 })
                 .setNeutralButton(getString(R.string.safe_check_exit), new DialogInterface.OnClickListener() {

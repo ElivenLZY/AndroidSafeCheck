@@ -10,7 +10,7 @@ import com.lzy.safecheck.TaskEvent;
 public interface OnTaskListener {
     void onStart();
 
-    void OnTaskEvent(ISafeCheck iSafeCheck, TaskEvent taskEvent);
+    void onTaskEvent(ISafeCheck iSafeCheck, TaskEvent taskEvent);
 
     void onComplete();
 }

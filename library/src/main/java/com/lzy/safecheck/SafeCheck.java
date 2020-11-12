@@ -36,8 +36,8 @@ public class SafeCheck implements ISafeCheck {
 
         task.execute(new OnTaskEventListener() {
             @Override
-            public void OnTaskEvent(TaskEvent taskEvent) {
-                mOnTaskListener.OnTaskEvent(SafeCheck.this, taskEvent);
+            public void onEvent(TaskEvent taskEvent, boolean callTaskEvent) {
+                if (callTaskEvent) mOnTaskListener.onTaskEvent(SafeCheck.this, taskEvent);
                 if (taskEvent.result) check();
             }
         });
@@ -49,7 +49,7 @@ public class SafeCheck implements ISafeCheck {
     }
 
     public static final class Builder {
-        private TaskQueue mTaskQueue;
+        private TaskQueue      mTaskQueue;
         private OnTaskListener mOnTaskListener;
 
         public Builder() {

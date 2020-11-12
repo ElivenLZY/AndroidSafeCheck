@@ -1,8 +1,11 @@
 package com.lzy.safecheck.utils;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.telephony.TelephonyManager;
@@ -107,6 +110,18 @@ public class Utils {
         if (checkDial) return true;
 
         return false;
+    }
+
+
+    public static String getAppName(Application app) {
+        try {
+            PackageManager pm = app.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(app.getPackageName(), 0);
+            return pi == null ? null : pi.applicationInfo.loadLabel(pm).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }

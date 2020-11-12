@@ -7,5 +7,9 @@ import com.lzy.safecheck.TaskEvent;
  * Email：1130294881@qq.com
  */
 public interface OnTaskEventListener {
-    void OnTaskEvent(TaskEvent taskEvent);
+    /**
+     * @param taskEvent     当前任务的事件信息
+     * @param callTaskEvent 是否调用{@link OnTaskListener} 的 onTaskEvent 方法
+     */
+    void onEvent(TaskEvent taskEvent, boolean callTaskEvent);
 }

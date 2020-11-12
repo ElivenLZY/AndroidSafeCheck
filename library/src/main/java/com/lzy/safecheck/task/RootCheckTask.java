@@ -39,7 +39,7 @@ public class RootCheckTask extends AbstractCheckTask {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        callTaskEventListener(true);
+                        callTaskEventListener(true,false);
                     }
                 })
                 .setNeutralButton(getString(R.string.safe_check_exit), new DialogInterface.OnClickListener() {

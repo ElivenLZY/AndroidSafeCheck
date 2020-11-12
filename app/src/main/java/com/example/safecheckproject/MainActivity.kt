@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val taskQueue = TaskQueue()
         taskQueue.addTask(DebugCheckTask(this))
+        taskQueue.addTask(PageHackCheckTask(this))
         taskQueue.addTask(SignCheckTask(this, RIGHT_CER))
         taskQueue.addTask(RootCheckTask(this))
         taskQueue.addTask(SimulatorCheckTask(this))
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "安全检查开始")
             }
 
-            override fun OnTaskEvent(iSafeCheck: ISafeCheck?, taskEvent: TaskEvent?) {
+            override fun onTaskEvent(iSafeCheck: ISafeCheck?, taskEvent: TaskEvent?) {
                 Log.d(TAG, "onTaskEvent: ${taskEvent?.tag} result is ${taskEvent?.result}")
             }
 
