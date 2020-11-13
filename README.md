@@ -44,27 +44,30 @@ dependencies {
 
 ```
         
-        val taskQueue = TaskQueue()
-        taskQueue.addTask(DebugCheckTask(this))
-        taskQueue.addTask(PageHackCheckTask(this))
-        taskQueue.addTask(SignCheckTask(this, RIGHT_CER))
-        taskQueue.addTask(RootCheckTask(this))
-        taskQueue.addTask(SimulatorCheckTask(this))
-        taskQueue.addTask(NetProxyCheckTask(this, false))
-        SafeCheckService.startCheck(taskQueue, object : OnTaskListener {
-            override fun onStart() {
-                Log.d(TAG, "安全检查开始")
+        TaskQueue taskQueue = new TaskQueue();
+        taskQueue.addTask(new DebugCheckTask(this));
+        taskQueue.addTask(new PageHackCheckTask(this));
+        taskQueue.addTask(new SignCheckTask(this, RIGHT_CER));
+        taskQueue.addTask(new RootCheckTask(this));
+        taskQueue.addTask(new SimulatorCheckTask(this));
+        taskQueue.addTask(new NetProxyCheckTask(this, false));
+        SafeCheckService.startCheck(taskQueue, new OnTaskListener() {
+            @Override
+            public void onStart() {
+                Log.d(TAG, "安全检查开始");
             }
 
-            override fun OnTaskEvent(iSafeCheck: ISafeCheck?, taskEvent: TaskEvent?) {
-                Log.d(TAG, "onTaskEvent: ${taskEvent?.tag} result is ${taskEvent?.result}")
+            @Override
+            public void onTaskEvent(ISafeCheck iSafeCheck, TaskEvent taskEvent) {
+                Log.d(TAG, "${taskEvent?.tag} isCheckPass is ${taskEvent?.isCheckPass}");
             }
 
-            override fun onComplete() {
-                Toast.makeText(this@MainActivity, "安全检查完成", Toast.LENGTH_SHORT).show()
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "安全检查完成");
+                Toast.makeText(MainActivity.this, "安全检查完成", Toast.LENGTH_SHORT).show();
             }
-
-        })   
+        });
      
 ```
 
