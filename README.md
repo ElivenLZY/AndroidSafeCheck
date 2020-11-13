@@ -1,6 +1,5 @@
 
 ## Android SafeCheck
----------
 
 [![](https://jitpack.io/v/elivenlzy/androidsafecheck.svg)](https://jitpack.io/#elivenlzy/androidsafecheck)
 
@@ -16,7 +15,7 @@
 6. 界面劫持检测
 
 ### 依赖
----------
+****
 
 **1，在你的项目根目录的build.gradle添加仓库：**
 
@@ -38,7 +37,8 @@ dependencies {
 	}
 ```
 
-> 使用
+### 使用
+****
 
 **一，一键快速集成，在APP启动页加上如下代码即可获得本库提供的默认的全部功能：**
 
