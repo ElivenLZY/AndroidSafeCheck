@@ -21,7 +21,7 @@ public class SignCheckTask extends AbstractCheckTask {
 
     /**
      *
-     * @param rightCer 正版签名
+     * @param rightCer 正版签名的sha1
      */
     public SignCheckTask(FragmentActivity activity, String rightCer) {
         super(activity);
@@ -31,7 +31,7 @@ public class SignCheckTask extends AbstractCheckTask {
     @Override
     protected boolean check() {
         SignCheckUtil signCheck = new SignCheckUtil(mActivity, mRightCer);
-        Utils.log(getTag(), "sha1: " + signCheck.getCer());
+        Utils.log("sha1: " + signCheck.getCer());
         return signCheck.check();
     }
 

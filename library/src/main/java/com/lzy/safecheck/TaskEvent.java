@@ -5,11 +5,19 @@ package com.lzy.safecheck;
  * Email：1130294881@qq.com
  */
 public class TaskEvent {
-    public String tag;
-    public boolean result; //true: 检查通过 false：不通过，需要手动处理
+    private String tag;
+    private boolean checkPass; //true: 检查通过 false：不通过，需要手动处理
 
-    public TaskEvent(String tag, boolean result) {
+    public TaskEvent(String tag, boolean checkPass) {
         this.tag = tag;
-        this.result = result;
+        this.checkPass = checkPass;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public boolean isCheckPass() {
+        return checkPass;
     }
 }

@@ -33,12 +33,10 @@ public abstract class AbstractCheckTask implements ICheckTask {
 
     protected void execute() {
         boolean checkPass = check();
+        callTaskEventListener(checkPass);
         if (!checkPass) {
-            callTaskEventListener(false);
             interruptCheck();
-            return;
         }
-        callTaskEventListener(true);
     }
 
     /**
@@ -80,17 +78,17 @@ public abstract class AbstractCheckTask implements ICheckTask {
     /**
      * 调用 {@link OnTaskEventListener} 的 onEvent 方法
      *
-     * @param result        检查通过检查
+     * @param checkPass        是否通过检查
      * @param callTaskEvent 是否调用{@link OnTaskListener} 的 onTaskEvent 方法
      */
-    protected void callTaskEventListener(boolean result, boolean callTaskEvent) {
+    protected void callTaskEventListener(boolean checkPass, boolean callTaskEvent) {
         if (mOnTaskEventListener != null) {
-            mOnTaskEventListener.onEvent(getTaskEvent(result), callTaskEvent);
+            mOnTaskEventListener.onEvent(getTaskEvent(checkPass), callTaskEvent);
         }
     }
 
-    protected TaskEvent getTaskEvent(boolean result) {
-        return new TaskEvent(getTag(), result);
+    protected TaskEvent getTaskEvent(boolean checkPass) {
+        return new TaskEvent(getTag(), checkPass);
     }
 
     @Override

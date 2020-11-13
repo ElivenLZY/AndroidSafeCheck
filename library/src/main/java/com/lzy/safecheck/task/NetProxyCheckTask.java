@@ -25,7 +25,7 @@ public class NetProxyCheckTask extends AbstractCheckTask {
 
     @Override
     protected boolean check() {
-        return Utils.isWifiProxy(mActivity, mIsOpenNetProxyCheck);
+        return !Utils.isWifiProxy(mActivity, mIsOpenNetProxyCheck);
     }
 
     @Override

@@ -68,7 +68,7 @@ public class SignCheckUtil {
                 return true;
             }
         } else {
-            Utils.log(TAG, "未给定真实的签名 SHA-1 值");
+            Utils.log("未给定正版的签名 SHA-1 值");
         }
         return false;
     }

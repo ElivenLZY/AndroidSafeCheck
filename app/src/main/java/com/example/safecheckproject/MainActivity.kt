@@ -35,10 +35,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTaskEvent(iSafeCheck: ISafeCheck?, taskEvent: TaskEvent?) {
-                Log.d(TAG, "onTaskEvent: ${taskEvent?.tag} result is ${taskEvent?.result}")
+                Log.d(TAG, "${taskEvent?.tag} isCheckPass is ${taskEvent?.isCheckPass}")
             }
 
             override fun onComplete() {
+                Log.d(TAG, "安全检查完成")
                 Toast.makeText(this@MainActivity, "安全检查完成", Toast.LENGTH_SHORT).show()
             }
 
@@ -46,8 +47,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val TAG = "MainActivity"
-        const val RIGHT_CER = "FA:A3:7E:F8:2F:66:74:10:24:0F:46:37:7C:AD:22:A1:59:8C:CA:55"
+        const val TAG = "lzy"
+        const val RIGHT_CER = "B4:22:FA:A3:21:D9:7B:CB:BF:56:CB:63:65:07:3F:4C:85:5F:AA:D0"
     }
 
 }

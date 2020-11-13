@@ -5,6 +5,9 @@ import android.content.pm.ApplicationInfo;
 import android.os.Debug;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
+
+import com.lzy.safecheck.SafeCheckService;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -65,33 +68,28 @@ public class DebugCheckUtil {
     }
 
     private boolean loopCheck(boolean isStrictMode) {
-        if (!Utils.isBuildConfigDebug(application)) {//非debug模式下
-            Utils.log(TAG, " release debuggable run  exit ");
+        if (!Utils.isBuildConfigDebug(application)) {//非调试模式
+            Utils.log(" release debuggable run  exit ");
             if (isDebuggable(application)) {//开启了debug
-                killSelf();
                 return true;
             }
             boolean isDebug = Debug.isDebuggerConnected();//被调试器连接了
-            Utils.log(TAG, " debugger connected  exit "+isDebug);
+            Utils.log(" debugger connected  exit " + isDebug);
             if (isDebug) {
-                killSelf();
                 return true;
             }
         }
-
         if (!isStrictMode) return false;
 
         boolean portUsing = isLocalPortUsing(CHECK_DEFAULT_PORT);
-        Utils.log(TAG, " portUsing  using exit " + portUsing);
+        Utils.log(" portUsing  using exit " + portUsing);
         if (portUsing) {
-            killSelf();
             return true;
         }
 
         boolean underTraced = isUnderTraced();
-        Utils.log(TAG, " traced exit underTraced : " + underTraced);
+        Utils.log(" traced exit underTraced : " + underTraced);
         if (underTraced) {
-            killSelf();
             return true;
         }
         return false;
@@ -122,7 +120,7 @@ public class DebugCheckUtil {
                 tracerPid = Integer.valueOf(tracerPidStr);
                 break;
             }
-            Utils.log(TAG, " tracerPid " + tracerPid);
+            Utils.log(" tracerPid " + tracerPid);
             localBufferedReader.close();
             return tracerPid > 1000;
         } catch (Exception e) {
@@ -163,9 +161,11 @@ public class DebugCheckUtil {
         public void run() {
             while (!isStopCheck && executionTime <= (isStrictMode ? MODE_STRICT_TIME : MODE_NORMAL_TIME)) {
                 try {
-                    boolean isFinish = loopCheck(isStrictMode);
-                    Utils.log(TAG, " check run is finish :  " + isFinish + " thread id : " + Thread.currentThread().getId() + " execution time : " + executionTime);
-                    if (isFinish) {
+                    boolean isTrack = loopCheck(isStrictMode);
+                    Utils.log(" check run is track :  " + isTrack + " thread id : " + Thread.currentThread().getId() + " execution time : " + executionTime);
+                    if (isTrack) {
+                        Log.e(SafeCheckService.getTAG(), "应用被调试，强制退出！");
+                        killSelf();
                         break;
                     }
                     long sleepTime = isStrictMode ? MODE_STRICT_INTERVAL_TIME : MODE_NORMAL_INTERVAL_TIME;

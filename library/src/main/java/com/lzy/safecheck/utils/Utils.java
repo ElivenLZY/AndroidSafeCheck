@@ -22,8 +22,8 @@ import java.lang.reflect.Field;
  */
 public class Utils {
 
-    public static void log(String tag, String msg) {
-        if (SafeCheckService.isDebugLog()) Log.d(tag, msg);
+    public static void log(String msg) {
+        if (SafeCheckService.isDebugLog()) Log.d(SafeCheckService.getTAG(), msg);
     }
 
     public static void exitApp() {

@@ -22,7 +22,7 @@ public class SimulatorCheckTask extends AbstractCheckTask {
 
     @Override
     protected boolean check() {
-        return Utils.isEmulator(mActivity);
+        return !Utils.isEmulator(mActivity);
     }
 
     @Override

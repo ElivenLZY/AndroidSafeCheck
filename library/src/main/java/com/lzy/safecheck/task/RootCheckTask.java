@@ -22,7 +22,7 @@ public class RootCheckTask extends AbstractCheckTask {
 
     @Override
     protected boolean check() {
-        return Utils.isDeviceRooted();
+        return !Utils.isDeviceRooted();
     }
 
     @Override

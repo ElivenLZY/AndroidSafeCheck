@@ -3,6 +3,7 @@ package com.lzy.safecheck;
 import com.lzy.safecheck.listener.OnTaskEventListener;
 import com.lzy.safecheck.listener.OnTaskListener;
 import com.lzy.safecheck.task.ICheckTask;
+import com.lzy.safecheck.utils.Utils;
 
 /**
  * 安全检查
@@ -29,6 +30,7 @@ public class SafeCheck implements ISafeCheck {
     @Override
     public void check() {
         final ICheckTask task = pollTask();
+        Utils.log("check task is " + task);
         if (task == null) {
             mOnTaskListener.onComplete();
             return;
@@ -38,7 +40,7 @@ public class SafeCheck implements ISafeCheck {
             @Override
             public void onEvent(TaskEvent taskEvent, boolean callTaskEvent) {
                 if (callTaskEvent) mOnTaskListener.onTaskEvent(SafeCheck.this, taskEvent);
-                if (taskEvent.result) check();
+                if (taskEvent.isCheckPass()) check();
             }
         });
     }
@@ -49,7 +51,7 @@ public class SafeCheck implements ISafeCheck {
     }
 
     public static final class Builder {
-        private TaskQueue      mTaskQueue;
+        private TaskQueue mTaskQueue;
         private OnTaskListener mOnTaskListener;
 
         public Builder() {

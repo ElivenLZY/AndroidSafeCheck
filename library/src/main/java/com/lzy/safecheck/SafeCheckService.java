@@ -9,6 +9,16 @@ import com.lzy.safecheck.listener.OnTaskListener;
 public class SafeCheckService {
 
     private static boolean debugLog = false;
+    private static String TAG = "SafeCheck";
+
+
+    public static void setLogTag(String tag) {
+        TAG=tag;
+    }
+
+    public static String getTAG() {
+        return TAG;
+    }
 
     public static void setLogEnabled(boolean var0) {
         debugLog = var0;
