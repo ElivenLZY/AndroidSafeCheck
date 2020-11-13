@@ -1,10 +1,9 @@
+
+## Android SafeCheck
+---
 [![](https://jitpack.io/v/elivenlzy/androidsafecheck.svg)](https://jitpack.io/#elivenlzy/androidsafecheck)
 
-> 目录
-
-* 功能列表
-* 使用方法
-* 功能介绍
+这是一个Android的安全环境检测库，项目中接入该库可以提升APP的安全等级，可用于过等保时的安全扫描。
 
 > 功能列表：
 
@@ -15,7 +14,29 @@
 5. 正版签名检测
 6. 界面劫持检测
 
-> 使用方法
+> 依赖
+
+**1，在你的项目根目录的build.gradle添加仓库：**
+
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+**2,在mudule的build.gradle中添加依赖：**
+
+```
+dependencies {
+	   implementation 'com.github.elivenlzy:androidsafecheck:v0.0.1'
+	}
+```
+
+> 使用
 
 **一，一键快速集成，在APP启动页加上如下代码即可获得本库提供的默认的全部功能：**
 
@@ -90,13 +111,12 @@
 
 在应用启动时会检查一次当前应用的签名是否正版签名一致，如果不一致，会弹窗阻塞后续任务执行。
 
-需要传入正版签名的sha1，可以使用命令：keytool -v -list -keystore <签名文件路径> 来获取
+需要传入正版签名的sha1，可以使用命令：keytool -v -list -keystore
+<签名文件路径> 来获取
 
 **6. 界面劫持检测**
 
 在应用启动时会注册一个应用前后台状态的监听，如果应用最上层的页面没有在前台显示，会弹窗一个退到后台的提示；监听注册成功成功即认为该任务通过。
 
----------------------
 
-#### 持续完善中...
 
