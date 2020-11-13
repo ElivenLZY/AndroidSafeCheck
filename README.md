@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/elivenlzy/androidsafecheck.svg)](https://jitpack.io/#elivenlzy/androidsafecheck)
+
 > 目录
 
 * 功能列表
