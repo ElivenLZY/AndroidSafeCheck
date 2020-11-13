@@ -1,6 +1,7 @@
 
 ## Android SafeCheck
----
+---------
+
 [![](https://jitpack.io/v/elivenlzy/androidsafecheck.svg)](https://jitpack.io/#elivenlzy/androidsafecheck)
 
 这是一个Android的安全环境检测库，项目中接入该库可以提升APP的安全等级，可用于过等保时的安全扫描。
@@ -14,7 +15,8 @@
 5. 正版签名检测
 6. 界面劫持检测
 
-> 依赖
+### 依赖
+---------
 
 **1，在你的项目根目录的build.gradle添加仓库：**
 
@@ -79,7 +81,8 @@ dependencies {
    来判断处理不通过的task，然后根据处理结果来是否调用 iSafeCheck.check
    方法继续执行后面的检查task
 
-> 功能介绍
+### 功能介绍
+---------
 
 **1. 防调试检测**
 
