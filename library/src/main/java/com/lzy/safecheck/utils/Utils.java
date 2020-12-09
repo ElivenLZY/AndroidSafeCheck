@@ -49,8 +49,7 @@ public class Utils {
         return false;
     }
 
-    public static boolean isWifiProxy(Context context, boolean isOpenNetProxyCheck) {
-        if (!isOpenNetProxyCheck) return false;
+    public static boolean isWifiProxy(Context context) {
         final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
         String proxyAddress;
         int proxyPort;
