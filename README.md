@@ -33,7 +33,7 @@ allprojects {
 
 ```
 dependencies {
-	   implementation 'com.github.elivenlzy:androidsafecheck:v0.0.1'
+	   implementation 'com.github.elivenlzy:androidsafecheck:0.0.2'
 	}
 ```
 
